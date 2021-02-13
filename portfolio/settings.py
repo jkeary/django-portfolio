@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jobs.apps.JobsConfig',
     'blog.apps.BlogConfig',
+    'project.apps.ProjectConfig',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
