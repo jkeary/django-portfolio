@@ -19,7 +19,7 @@ class ProjectType(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=250)
 
-    project_types = models.ManyToManyField(ProjectType)
+    project_type = models.ManyToManyField(ProjectType)
     primary_image = models.ImageField(upload_to='images/')
 
     external_link = models.URLField(blank=True)
