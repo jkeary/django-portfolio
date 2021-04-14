@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/' %}{{project.template}}.css"></link>
+</head>
+<body>
+    <div class='star-field'></div>
+    <script src="{% static 'js/' %}{{project.template}}.js" type="text/javascript"></script>
+</body>
+</html>

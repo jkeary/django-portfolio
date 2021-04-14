@@ -80,7 +80,11 @@
         <hr/>
 
         {% for project in projects.all %}
-            <a href="{{ project.external_link }}"><h3>{{ project.title }}</h3></a>
+          {% if not project.template %}
+            <a href="{{ project.external_link }}" target="_blank"><h3>{{ project.title }}</h3></a>
+          {% else %}
+            <a href="{% url 'projectview' project.id %}"><h3>{{ project.title }}</h3></a>
+          {% endif %}
             {{ project.start_date }} - {{ project.end_date }}
             <br />
             <img class="img-fluid" src="{{ project.primary_image.url }}" height=400 width=400>
