@@ -55,14 +55,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-link" href="#">Sound</a>
-          <a class="nav-link" href="#">Code</a>
-          <a class="nav-link" href="#">Music</a>
-          <a class="nav-link" href="#">Video</a>
+          {% for project_type in project_type.all %}
+          <a class="nav-link" href="#">{{ projecttype.nav_name}}</a>
+          {% endfor %}
           <a class="nav-link" href="#">Docs</a>
           <a class="nav-link" href="#">About</a>
-          <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
-          <a class="nav-link" href="{% static 'SoftwareEngineerResume.pdf' %}">Resume</a>
+          <!-- <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> -->
+          <a class="nav-link" target="_blank" href="{% static 'SoftwareEngineerResume.pdf' %}">Resume</a>
           <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
         </div>
       </div>
@@ -75,14 +74,15 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi Im James</h1>
-        <p class="lead text-muted">Hi, my name is James and I hate programming</p>
-        <p>
-          <a href="mailto:jkeary@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
+        <h1 class="fw-light">James Keary</h1>
+        <p class="lead text-muted">Hello, here is a large picture of what I look like:</p>
       </div>
       <img src='{% static "frend.jpg" %}'/>
     </div>
+    <p>
+      <p class="lead text-muted">Did you like it?  Here is a button that if you click will open the mailing applicaton on your computer with my email in the to field.  Some people don't like that though.</p>
+      <a href="mailto:jkeary@gmail.com" class="btn btn-primary my-2">Email Me</a>
+    </p>
   </section>
 
   <div class="album py-5 bg-light">
