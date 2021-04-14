@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 from tinymce.models import HTMLField
 
 # Sound Designer would be the job title, Sound woild be the nav bar name.
@@ -29,5 +30,8 @@ class Project(models.Model):
     # If you want more than a summary, create a template with the name of the project 
     detail = HTMLField(blank=True, max_length=100000)
     template = models.CharField(max_length=100, blank=True)
+
+    start_date = models.DateField(default=date.today)
+    end_date = models.DateField(default=date.today)
 
 
