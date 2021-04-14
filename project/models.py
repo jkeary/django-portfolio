@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 from datetime import date
 from tinymce.models import HTMLField
 
@@ -23,15 +24,13 @@ class Project(models.Model):
     project_type = models.ManyToManyField(ProjectType)
     primary_image = models.ImageField(upload_to='images/')
 
-    external_link = models.URLField(blank=True)
     # If theres no summary the get summary method could just take the first 1000 chars of the detail.
     summary = HTMLField(max_length=1000, blank=True)
     
     # If you want more than a summary, create a template with the name of the project 
     detail = HTMLField(blank=True, max_length=100000)
+    external_link = models.URLField(blank=True)
     template = models.CharField(max_length=100, blank=True)
 
     start_date = models.DateField(default=date.today)
     end_date = models.DateField(default=date.today)
-
-

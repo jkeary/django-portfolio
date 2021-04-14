@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>James Keary</title>
+    <title>Album example · Bootstrap v5.0</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -47,61 +47,46 @@
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">James Keary</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-          {% for project_type in project_types.all %}
-          <a class="nav-link" href="{% url 'listview' project_type.nav_name %}">{{ project_type.nav_name}}</a>
-          {% endfor %}
-          <a class="nav-link" href="#">Docs</a>
-          <a class="nav-link" href="#">About</a>
-          <!-- <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> -->
-          <a class="nav-link" target="_blank" href="{% static 'SoftwareEngineerResume.pdf' %}">Resume</a>
-          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">James Keary</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+            {% for project_type in project_types.all %}
+            <a class="nav-link" href="{% url 'listview' project_type.nav_name %}">{{ project_type.nav_name}}</a>
+            {% endfor %}
+            <a class="nav-link" href="#">Docs</a>
+            <a class="nav-link" href="#">About</a>
+            <!-- <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> -->
+            <a class="nav-link" target="_blank" href="{% static 'SoftwareEngineerResume.pdf' %}">Resume</a>
+            <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+        </div>
+    </nav>
 </header>
 
 <main>
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">James Keary</h1>
-        <p class="lead text-muted">Hello, here is a large picture of what I look like:</p>
-      </div>
-      <img src='{% static "frend.jpg" %}'/>
-    </div>
-    <p>
-      <p class="lead text-muted">Did you like it?  Here is a button that if you click will open the mailing applicaton on your computer with my email in the to field.  Some people don't like that though.</p>
-      <a href="mailto:jkeary@gmail.com" class="btn btn-primary my-2">Email Me</a>
-    </p>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
+        <h1 class='text-center pt-3'>
+            {{ project_type }}
+        </h1>
+        <br/>
+        <br/>
+        <hr/>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"/>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
+        {% for project in projects.all %}
+            <a href="{{ project.external_link }}"><h3>{{ project.title }}</h3></a>
+            {{ project.start_date }} - {{ project.end_date }}
+            <br />
+            <img class="img-fluid" src="{{ project.primary_image.url }}" height=400 width=400>
+            <p>{{ project.summary }}</p>
         {% endfor %}
-      </div>
     </div>
-  </div>
 
 </main>
 
