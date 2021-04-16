@@ -47,26 +47,24 @@
   <body>
     
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">James Keary</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav ml-auto">
-            {% for project_type in project_types.all %}
-            <a class="nav-link" href="{% url 'listview' project_type.nav_name %}">{{ project_type.nav_name}}</a>
-            {% endfor %}
-            <a class="nav-link" href="#">Docs</a>
-            <a class="nav-link" href="#">About</a>
-            <!-- <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> -->
-            <a class="nav-link" target="_blank" href="{% static 'SoftwareEngineerResume.pdf' %}">Resume</a>
-            <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
-            </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">James Keary</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          {% for project_type in project_types.all %}
+          <a class="nav-link" href="{% url 'listview' project_type.nav_name %}">{{ project_type.nav_name}}</a>
+          {% endfor %}
+          <!-- <a class="nav-link" href="{% url 'allblogs' %}">Blog</a> -->
+          <!-- <a class="nav-link" target="_blank" href="{% static 'SoftwareEngineerResume.pdf' %}">Resume</a> -->
+          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
         </div>
-        </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </header>
 
 <main>
